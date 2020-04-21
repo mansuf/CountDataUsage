@@ -6,18 +6,20 @@ from tkinter import *
 from tkinter import messagebox
 from time import sleep
 
+
 def prepare_init():
     if os.path.exists("data"):
         pass
     else:
         os.mkdir('data')
-    
+
+
 # Satuan Byte
-    # Kilobyte = 1,024 bytes
-    # Megabyte = 1,048,576 bytes
-    # Gigabyte = 1,073,741,824 bytes
-    # Terabyte = 1,099,511,627,776 bytes
-    # Petabyte = 1,125,899,906,842,624 bytes
+# Kilobyte = 1,024 bytes
+# Megabyte = 1,048,576 bytes
+# Gigabyte = 1,073,741,824 bytes
+# Terabyte = 1,099,511,627,776 bytes
+# Petabyte = 1,125,899,906,842,624 bytes
 
 
 def write_script():
@@ -116,6 +118,7 @@ if %VAR_MODIFED_VERIFY_2%==NOT_FOUND (
     write15.write('')
     write15.close()
 
+
 def gui_process():
     global main2
     global read_received2
@@ -134,7 +137,7 @@ def gui_process():
     main2 = Canvas(main_init, width=300, height=300)
     main2.pack()
     main2.configure(background='black')
-    word1 = Label(main2, text='Total Upload', foreground='green', background='black', font='Vendeta 12 bold')
+    word1 = Label(main2, text='Total Upload', foreground='green', background='black', font='Vendetta 12 bold')
     main2.create_window(85, 70, window=word1)
     word2 = Label(main2, text='Total Download', foreground='green', background='black', font='Vendeta 12 bold')
     main2.create_window(210, 70, window=word2)
@@ -144,15 +147,20 @@ def gui_process():
     main2.create_window(75, 150, window=word4)
     word5 = Label(main2, text='Ping', foreground='green', background='black', font='Vendeta 12 bold')
     main2.create_window(150, 215, window=word5)
-    word_sent = Label(main2, text='', textvariable=read_sent2, foreground='blue', background='black', font='Vendeta 12 bold')
+    word_sent = Label(main2, text='', textvariable=read_sent2, foreground='blue', background='black',
+                      font='Vendeta 12 bold')
     main2.create_window(100, 95, window=word_sent)
-    word_received = Label(main2, text='', textvariable=read_received2, foreground='blue', background='black', font='Vendeta 12 bold')
+    word_received = Label(main2, text='', textvariable=read_received2, foreground='blue', background='black',
+                          font='Vendeta 12 bold')
     main2.create_window(195, 95, window=word_received)
-    word_speed_download = Label(main2, text='', textvariable=read_speed_download2, foreground='blue', background='black', font='Vendeta 12 bold')
+    word_speed_download = Label(main2, text='', textvariable=read_speed_download2, foreground='blue',
+                                background='black', font='Vendeta 12 bold')
     main2.create_window(195, 175, window=word_speed_download)
-    word_speed_upload = Label(main2, text='', textvariable=read_speed_upload2, foreground='blue', background='black', font='Vendeta 12 bold')
+    word_speed_upload = Label(main2, text='', textvariable=read_speed_upload2, foreground='blue', background='black',
+                              font='Vendeta 12 bold')
     main2.create_window(100, 175, window=word_speed_upload)
-    word_ping = Label(main2, text='', textvariable=read_ping2, foreground='blue', background='black', font='Vendeta 12 bold')
+    word_ping = Label(main2, text='', textvariable=read_ping2, foreground='blue', background='black',
+                      font='Vendeta 12 bold')
     main2.create_window(150, 245, window=word_ping)
     main2.after(500, process)
     main2.mainloop()
@@ -160,6 +168,7 @@ def gui_process():
 
 
 def process():
+    global total_download2, total_upload2
     R1 = ''
     R2 = ''
     R3 = ''
@@ -270,7 +279,7 @@ def process():
     if R1 == '':
         pass
     else:
-        R1 = int(R1) / 1024
+        R1 = int(R1) / 8 / 1024
         R1 = str(R1)
         R1_point = R1.find('.')
         if R1_point == -1:
@@ -281,7 +290,7 @@ def process():
     if R2 == '':
         pass
     else:
-        R2 = int(R2) / 1024
+        R2 = int(R2) / 8 / 1024
         R2 = str(R2)
         R2_point = R2.find('.')
         if R2_point == -1:
@@ -296,7 +305,7 @@ def process():
     if R3 == '':
         pass
     else:
-        R3 = int(R3) / 1024
+        R3 = int(R3) / 8 / 1024
         R3 = str(R3)
         R3_point = R3.find('.')
         if R3_point == -1:
@@ -307,7 +316,7 @@ def process():
     if R4 == '':
         pass
     else:
-        R4 = int(R4) / 1024
+        R4 = int(R4) / 8 / 1024
         R4 = str(R4)
         R4_point = R4.find('.')
         if R4_point == -1:
@@ -322,7 +331,7 @@ def process():
     if S1 == '':
         pass
     else:
-        S1 = int(S1) / 1024
+        S1 = int(S1) / 8 / 1024
         S1 = str(S1)
         S1_point = S1.find('.')
         if S1_point == -1:
@@ -333,7 +342,7 @@ def process():
     if S2 == '':
         pass
     else:
-        S2 = int(S2) / 1024
+        S2 = int(S2) / 8 / 1024
         S2 = str(S2)
         S2_point = S2.find('.')
         if S2_point == -1:
@@ -348,7 +357,7 @@ def process():
     if S3 == '':
         pass
     else:
-        S3 = int(S3) / 1024
+        S3 = int(S3) / 8 / 1024
         S3 = str(S3)
         S3_point = S3.find('.')
         if S3_point == -1:
@@ -359,7 +368,7 @@ def process():
     if S4 == '':
         pass
     else:
-        S4 = int(S4) / 1024
+        S4 = int(S4) / 8 / 1024
         S4 = str(S4)
         S4_point = S4.find('.')
         if S4_point == -1:
@@ -388,7 +397,7 @@ def process():
         write_total_download.write(SPEEDDOWNLOAD)
         write_total_download.close()
         total_download2 = SPEEDDOWNLOAD
-        SPEEDDOWNLOAD = SPEEDDOWNLOAD + ' Kbps'
+        SPEEDDOWNLOAD = SPEEDDOWNLOAD + ' KBps'
     if SPEEDUPLOAD == '':
         pass
     else:
@@ -398,7 +407,7 @@ def process():
         write_total_upload.write(SPEEDUPLOAD)
         write_total_upload.close()
         total_upload2 = SPEEDUPLOAD
-        SPEEDUPLOAD = SPEEDUPLOAD + ' Kbps'
+        SPEEDUPLOAD = SPEEDUPLOAD + ' KBps'
     if total_download == '':
         pass
     else:
@@ -452,7 +461,7 @@ def process():
     read_speed_upload2.set(SPEEDUPLOAD)
     read_speed_download2.set(SPEEDDOWNLOAD)
     read_ping2.set(read_ping)
-    main2.after(500, process)
+    main2.after(1000, process)
 
 
 def gui():
@@ -472,6 +481,7 @@ def gui():
     main.create_window(150, 150, window=button1)
     main.mainloop()
     system('rmdir /Q /S data')
+
 
 # for i in range(101):
 #     i = str(i)
