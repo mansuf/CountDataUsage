@@ -3,4 +3,3 @@ Giving Information about speed download, speed upload, total upload, total downl
 
 Written in Python 3.7.4
 
-Language : Python
